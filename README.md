@@ -1,2 +1,2 @@
 # DGFD
-A new image representation method for instance image retrieval
+An unsupervised deep-embedding global feature descriptor for instance image retrieval
