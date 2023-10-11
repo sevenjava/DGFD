@@ -3,8 +3,8 @@
 % Usage: [map, aps] = computehmap (ranks, gnd, verbose)
 %
 % Notes:
-% 1) ranks starts from 1, size(ranks) = db_size X #queries
-% 2) The junk results (e.g., the query itself) should be declared in the gnd stuct array
+% 1 ranks starts from 1, size(ranks) = db_size X #queries
+% 2 The junk results (e.g., the query itself) should be declared in the gnd stuct array
 function [map, aps] = computehmap (ranks, gnd, verbose)
 
 if nargin < 3
