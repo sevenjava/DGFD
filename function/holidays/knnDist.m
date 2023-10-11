@@ -1,24 +1,15 @@
 % Return the k nearest neighbors of a set of query vectors
 %
-% Usage: [ids,dis] = knnDist(v, q, k, distype)
+% Usage: [idx,dis] = knnDist(v, q, k, distype)
 %   v                the dataset to be searched (one vector per column)
 %   q                the set of queries (one query per column)
 %   k  (default:1)   the number of nearest neigbors we want
-%   distype          distance type: 1=L1, 
-%                                   2=L2         -> Warning: return the square L2 distance
-%                                   3=chi-square -> Warning: return the square Chi-square
-%                                   4=signed chis-square
-%                                   16=cosine    -> Warning: return the *smallest* cosine 
-%                                                   Use -query to obtain the largest
-%                    available in Mex-version only
-%
+% 
 % Returned values
 %   idx         the vector index of the nearest neighbors
-%   dis         the corresponding *square* distances
-%
-% Both v and q contains vectors stored in columns, so transpose them if needed
-function [idx, dis] = knnDist (X, Q, k, distype)
+%   dis         the corresponding distances
 
+function [idx, dis] = knnDist (X, Q, k, distype)
 
 if ~exist('k'), k = 1; end
 if ~exist('distype'), distype = 2; end 
@@ -43,8 +34,6 @@ switch distype
       Q_nr = sum (Q.^2) / 2;
     
       sim = bsxfun (@plus, Q_nr', bsxfun (@minus, X_nr, Q'*X));
-    %  sim = bsxfun (@minus, X_nr, Q'*X)
-    %  sim = bsxfun (@plus, Q_nr', sim);
     
       if k == 1
         [dis, idx] = min (sim, [], 2);
