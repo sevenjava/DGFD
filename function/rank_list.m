@@ -1,5 +1,5 @@
 function [] = rank_list(features_pca,query_feature_pca,files,query_files,qe) 
- delete('../results/rank_list_tmp/*.mat')
+ delete('../results/*.mat')
 % % return results file 
     resultfile = {};
     num_return = size(files,1);
@@ -30,6 +30,6 @@ function [] = rank_list(features_pca,query_feature_pca,files,query_files,qe)
             result_image_name = split(files(index(k)).name,'.');
             resultfile{k,1} = result_image_name{1};
         end
-        save(['../results/rank_list_tmp/',query_files{i},'.mat'], 'resultfile');
+        save(['../results/',query_files{i},'.mat'], 'resultfile');
     end
 end
