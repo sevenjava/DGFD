@@ -1,5 +1,5 @@
 
-Tests = ["oxford5k","paris6k","oxford105k","paris106k","holidays"];
+Tests = ["oxford5k","paris6k","holidays","paris106k","oxford105k"];
 
 load("Oqueryimg.mat"); %%%the filename list of oxford queryset
 load("Pqueryimg.mat"); %%%the filename list of paris queryset 
@@ -7,25 +7,25 @@ load("Pqueryimg.mat"); %%%the filename list of paris queryset
 for i=1:5
    switch Tests(i)
        case "oxford5k"
-           imgfiles=dir('../datasets/oxford5k/*.jpg'); %%%dataset images
+           imgfiles=dir('./datasets/oxford5k/oxbuild_images/*.jpg'); %%%dataset images
            [TestFN,TrainFN,QFN]= GDFDmain(Tests(i),imgfiles);
-           evaluateOP(TestFN,TrainFN,QFN,queryPic,imgfiles,i);
-       case "oxford105k"
-           imgfiles=dir('../datasets/oxford105k/*.jpg');
-           [TestFN,TrainFN,QFN]= GDFDmain(Tests(i),imgfiles);      
            evaluateOP(TestFN,TrainFN,QFN,queryPic,imgfiles,i);
        case "paris6k"
-           imgfiles=dir('../datasets/paris6k/*.jpg');
+           imgfiles=dir('../datasets/paris6k/paris_images/*.jpg');
            [TestFN,TrainFN,QFN]= GDFDmain(Tests(i),imgfiles);
            evaluateOP(TestFN,TrainFN,QFN,pqueryPic,files,i);
+      case "holidays"
+           imgfiles= dir('../datasets/holidays/*.jpg');
+           [TestFN,TrainFN,QFN]= GDFDmain(Tests(i),imgfiles);
+           evaluateH(TestFN,TrainFN);
        case "paris106k"
            imgfiles=dir('../datasets/paris106k/*.jpg');
            [TestFN,TrainFN,QFN]= GDFDmain(Tests(i),imgfiles);
            evaluateOP(TestFN,TrainFN,QFN,pqueryPic,files,i);
-       case "holidays"
-           imgfiles= dir('E:\datasets\holidays6\*.jpg');
-           [TestFN,TrainFN,QFN]= GDFDmain(Tests(i),imgfiles);
-           evaluateH(TestFN,TrainFN);
+       case "oxford105k"
+           imgfiles=dir('../datasets/oxford105k/*.jpg');
+           [TestFN,TrainFN,QFN]= GDFDmain(Tests(i),imgfiles);      
+           evaluateOP(TestFN,TrainFN,QFN,queryPic,imgfiles,i);
    end
 end
 
