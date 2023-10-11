@@ -1,6 +1,6 @@
 % This function computes the mAP for a given set of returned results.
 %
-% Usage: map = compute_map (ranks, gnd);
+% Usage: [map, aps] = computehmap (ranks, gnd, verbose)
 %
 % Notes:
 % 1) ranks starts from 1, size(ranks) = db_size X #queries
@@ -23,7 +23,7 @@ for i = 1:nq
     qgndj = []; 
   end
   
-	% positions of positive and junk images
+% positions of positive and junk images
   [~, pos] = intersect (ranks (:,i), qgnd);
   [~, junk] = intersect (ranks (:,i), qgndj);
 
