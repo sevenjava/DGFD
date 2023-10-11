@@ -1,10 +1,10 @@
 % Return the k nearest neighbors of a set of query vectors
 %
-% Usage: [idx,dis] = knnDist(v, q, k, distype)
-%   v                the dataset to be searched (one vector per column)
-%   q                the set of queries (one query per column)
+% Usage: [idx,dis] = knnDist (X, Q, k, distype)
+%   X                the dataset to be searched (one vector per column)
+%   Q                the set of queries (one query per column)
 %   k  (default:1)   the number of nearest neigbors we want
-% 
+%   distype          the type of distance metric
 % Returned values
 %   idx         the vector index of the nearest neighbors
 %   dis         the corresponding distances
