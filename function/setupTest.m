@@ -45,7 +45,7 @@ function evaluateOP(Test,Train,query,queryimg,files,index)
         query_num=size(ogt_query_filename,1);
         sum_ap=0;
         ap=0;
-        rank_list_path='../results/rank_list_tmp/';      
+        rank_list_path='../results/';      
         parfor i=1:query_num
             ap=compute_ap(ogt_query_filename{i},gtr_files,rank_list_path);
             sum_ap=sum_ap+ap; 
