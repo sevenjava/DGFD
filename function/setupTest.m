@@ -54,8 +54,8 @@ function evaluateOP(Test,Train,query,queryimg,files,index)
          fprintf('dim= %d  mAP= %.4f\n',dd,AP);
     end
 end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% compute mAP for Holidays
-
 function evaluateH(TestFN,TrainFN)
     addpath('holidays');
     load('gnd_holidays.mat');
