@@ -6,9 +6,9 @@ file_num=size(files,1);
 dim=512;
 mo=zeros(file_num,1);
 
-for i=1:file_num
-    ft=importdata([files(1).folder,'\',files(i).name]);
-    folder=[lfiles(1).folder,'\'];
+parfor i=1:file_num
+    ft=importdata([files(i).folder,'\',files(i).name]);
+    folder=[lfiles(i).folder,'\'];
     I=imread([folder,lfiles(i).name]);
     
     [h,w,~]=size(ft);
